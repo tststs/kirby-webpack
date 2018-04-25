@@ -1,3 +1,2 @@
-  <?php echo js('assets/builds/bundle.js') ?>
-  </body>
+</body>
 </html>

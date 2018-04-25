@@ -1,21 +1,11 @@
 {
   "name": "kirby-webpack",
-  "version": "0.8.0",
+  "version": "1.0.0",
   "description": "A kirby starter-kit with modern frontend tools",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "stats": "node scripts/check-preprocessor.js && cross-env NODE_ENV=production webpack -p --config webpack.config.prod.js --profile --json > stats.json && echo \"→ Stats.json created\" && echo \"→ Drop your file to https://chrisbateman.github.io/webpack-visualizer/\"",
-    "start": "node scripts/check-preprocessor.js && cross-env NODE_ENV=development node scripts/webpack-serve.js",
-    "build": "node scripts/check-preprocessor.js && cross-env NODE_ENV=production node scripts/webpack-build.js",
-    "build:preprod": "cross-env APP_ENV=preprod npm run build",
-    "lint": "npm run lint:js",
-    "lint:js": "eslint --ext .js ./config ./scripts ./src --cache",
-    "test": "npm run lint",
-    "postinstall": "npm run kirby:update",
-    "kirby:update": "node scripts/kirby-update.js",
-    "kirby:ls": "node scripts/kirby-ls.js",
-    "kirby:add": "node scripts/kirby-add.js",
-    "kirby:remove": "node scripts/kirby-remove.js"
+    "start": "node scripts/start.js",
+    "build": "node scripts/build.js"
   },
   "repository": {
     "type": "git",
@@ -28,39 +18,16 @@
     "url": "https://github.com/brocessing/kirby-webpack/issues"
   },
   "homepage": "https://github.com/brocessing/kirby-webpack#readme",
-  "devDependencies": {
-    "@pqml/node-php-server": "^0.3.1",
-    "autoprefixer": "^8.2.0",
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.4",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.6.1",
-    "browser-sync": "^2.23.6",
-    "cross-env": "^5.1.4",
-    "css-loader": "^0.28.11",
-    "eslint": "^4.19.1",
-    "eslint-config-standard": "^11.0.0",
-    "eslint-plugin-import": "^2.10.0",
-    "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-promise": "^3.7.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "extract-text-webpack-plugin": "^4.0.0-beta.0",
-    "file-loader": "^1.1.11",
-    "fs-extra": "^5.0.0",
-    "github-download": "^0.5.0",
-    "kool-shell": "^1.5.0",
-    "less": "^3.0.1",
-    "less-loader": "^4.1.0",
-    "postcss-loader": "^2.1.3",
-    "progress-bar-webpack-plugin": "^1.11.0",
-    "resolve-url-loader": "^2.3.0",
-    "style-loader": "^0.20.3",
-    "tail": "^1.2.3",
-    "uglifyjs-webpack-plugin": "^1.2.4",
-    "webpack": "^4.5.0",
-    "webpack-dev-middleware": "^3.1.2",
-    "webpack-hot-middleware": "^2.21.2",
-    "webpack-merge": "^4.1.2"
+  "engines": {
+    "node": ">=8"
   },
-  "dependencies": {}
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.46",
+    "@pqml/node-php-server": "^0.3.1",
+    "babel-loader": "^8.0.0-beta",
+    "fs-extra": "^5.0.0",
+    "kool-shell": "^1.5.0",
+    "uglifyjs-webpack-plugin": "^1.2.5",
+    "webpack": "^4.6.0"
+  }
 }

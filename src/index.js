@@ -1,1 +1,4 @@
-console.log('It\'s working!')
+require.ensure(['./test.js'], function(require) {
+  console.log(require)
+  // Do something special...
+});
