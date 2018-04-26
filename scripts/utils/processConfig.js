@@ -5,7 +5,11 @@ const env = require(path.resolve(paths.config, 'env.config.js'))
 
 module.exports = function processConfig (config) {
   const entries = Array.isArray(kirby.entries)
-    ? kirby.entries.reduce((a, b) => { a[b] = b; return a }, {})
+    ? kirby.entries.reduce((a, b) => {
+      if (a)
+      a[b] = b
+      return a
+    }, {})
     : kirby.entries
 
   if (!config.entry) config.entry = {}
@@ -13,7 +17,7 @@ module.exports = function processConfig (config) {
 
   // setup entries
   for (let id in entries) {
-    config.entry[id] = Array.isArray(entries[id]) ? entries[id] : [entries[id]]
+    config.entry[id + 'b'] = Array.isArray(entries[id]) ? entries[id] : [entries[id]]
   }
 
 
@@ -26,6 +30,10 @@ module.exports = function processConfig (config) {
   config.output.path = paths.www
   config.output.publicPath = paths.baseUrl
   config.output.filename = path.join(relDist, '[name]-[hash].js')
+  config.output.filename = function (module) {
+    console.log('ath---')
+    console.log(module.chunk.entryModule)
+  }
   config.output.chunkFilename = path.join(relDist, 'chunk-[chunkhash].js')
 
 
